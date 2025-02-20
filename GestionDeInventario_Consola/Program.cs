@@ -108,7 +108,42 @@ class Program
                     }
                     break;
                 case "3":
-                    // Lógica para eliminar producto
+                    Console.Write("Ingrese el ID del producto que desea eliminar: ");
+                    if (int.TryParse(Console.ReadLine(), out int idEliminar))
+                    {
+                        // Buscar el producto por ID
+                        var productoEliminar = inventario.BuscarProductoPorId(idEliminar);
+
+                        if (productoEliminar != null)
+                        {
+                            // Mostrar los datos del producto
+                            Console.WriteLine("\nDatos del producto a eliminar:");
+                            Console.WriteLine(productoEliminar);
+
+                            // Pedir confirmación
+                            Console.Write("\n¿Está seguro de que desea eliminar este producto? (S/N): ");
+                            string confirmacion = Console.ReadLine();
+
+                            if (confirmacion.Equals("S", StringComparison.OrdinalIgnoreCase))
+                            {
+                                // Eliminar el producto
+                                inventario.EliminarProducto(idEliminar);
+                                Console.WriteLine("Producto eliminado correctamente.");
+                            }
+                            else
+                            {
+                                Console.WriteLine("Eliminación cancelada.");
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("No se encontró un producto con ese ID.");
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("ID no válido. Intente de nuevo.");
+                    }
                     break;
                 case "4":
                     // Lógica para buscar producto

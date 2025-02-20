@@ -57,6 +57,11 @@ namespace GestionDeInventario_Consola
             return productos.Find(p => p.Id == id);
         }
 
+        public void EliminarProducto(int id)
+        {
+            productos.RemoveAll(p => p.Id == id);
+        }
+
         //Guardar Datos
 
         public void GuardarDatos()
