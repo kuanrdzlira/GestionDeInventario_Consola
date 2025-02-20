@@ -118,7 +118,7 @@ class Program
                     break;
                 case "6":
                     inventario.GuardarDatos(); // Guardar datos antes de salir
-                    salir = true;
+                    //salir = true;
                     break;
                 case "7":
                     salir = true;
