@@ -146,7 +146,31 @@ class Program
                     }
                     break;
                 case "4":
-                    // Lógica para buscar producto
+                    Console.Write("Ingrese el nombre (o parte del nombre) del producto que desea buscar: ");
+                    string nombreBuscar = Console.ReadLine();
+
+                    if (!string.IsNullOrWhiteSpace(nombreBuscar))
+                    {
+                        // Buscar productos que coincidan con el nombre
+                        var productosEncontrados = inventario.BuscarProductos(nombreBuscar);
+
+                        if (productosEncontrados.Count > 0)
+                        {
+                            Console.WriteLine("\nProductos encontrados:");
+                            foreach (var producto in productosEncontrados)
+                            {
+                                Console.WriteLine(producto);
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("No se encontraron productos con ese nombre.");
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Nombre no válido. Intente de nuevo.");
+                    }
                     break;
                 case "5":
                     inventario.MostrarProductos();
