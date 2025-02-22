@@ -18,6 +18,7 @@ class Program
             Console.WriteLine("5. Mostrar Todos los Productos");
             Console.WriteLine("6. Guardar Datos");
             Console.WriteLine("7. Salir");
+            Console.WriteLine(":)");
             Console.Write("Seleccione una opción: ");
 
             string opcion = Console.ReadLine();
